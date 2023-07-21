@@ -1,3 +1,7 @@
+Version 1:
+![image](https://github.com/kpreforma/mqttWeb/assets/90399563/b68dd9a9-c032-4cdc-99e7-d0f62243fab8)
+
+
 # MQTT Publisher using MQTT
 
 For standard (non-secure) MQTT connections, use port 1883.
@@ -14,10 +18,3 @@ pip install Flask
 
 flask --app hello run
 
-# To create React app
-
-npx create-react-app reactflaskweb
-
-# Add proxy in packagelock
-
-"proxy": "http://localhost:5000/",
