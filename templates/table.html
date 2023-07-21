@@ -1,0 +1,18 @@
+{%extends "base.html" %} {% block title %} MQTT | Table {% endblock %} {% block
+content %}
+<table>
+	<tr>
+		<th>ID</th>
+		<th>Status</th>
+	</tr>
+	{% for signal in signals %}
+
+	<tr>
+		<td>{{ signal._id }}</td>
+		<td>{{ signal.status }}</td>
+	</tr>
+
+	{% endfor %}
+</table>
+
+{% endblock %}

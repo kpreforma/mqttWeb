@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, url_for, redirect, session
 from dotenv import load_dotenv
 import pymongo
 import os
+import pandas as pd
 
 # initialize Flask app
 app = Flask(__name__)
@@ -13,14 +14,21 @@ mongo_conn_str = (
 
 # initialize mongo client
 mongo_client = pymongo.MongoClient(mongo_conn_str).get_database("mqtt").RawSignals
+data = mongo_client.find()
+signals = list(data)
 
 
 # routes
 @app.get("/")
-def index():
-    return render_template("dashboard.html")
+def get_table():
+    return render_template("table.html", signals=signals)
+
+
+@app.get("/dashboard")
+def get_dash():
+    return render_template("dashboard.html", signals=signals)
 
 
 # start
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=8000, debug=True)
+    app.run(port=8080, debug=True)
