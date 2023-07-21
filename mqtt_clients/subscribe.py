@@ -1,12 +1,12 @@
 import paho.mqtt.client as mqtt
 
-# MQTT broker information
+# Broker information
 broker_address = "test.mosquitto.org"
 port = 1883
 topic = "test/tool1"
 
 
-# Callback functions
+# Functions
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
         print("Connected to the MQTT broker")

@@ -17,3 +17,7 @@ flask --app hello run
 # To create React app
 
 npx create-react-app reactflaskweb
+
+# Add proxy in packagelock
+
+"proxy": "http://localhost:5000/",
