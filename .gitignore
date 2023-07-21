@@ -161,3 +161,4 @@ cython_debug/
 
 # Folders
 mqtt-simulator/
+reactflaskweb/node_modules/

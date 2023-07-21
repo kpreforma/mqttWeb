@@ -13,3 +13,7 @@ pip install Flask
 # To run Flask app
 
 flask --app hello run
+
+# To create React app
+
+npx create-react-app reactflaskweb
