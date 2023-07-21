@@ -1,9 +1,19 @@
+# libraries
 import paho.mqtt.client as mqtt
+import pymongo
+import json
 
-# Broker information
+# env variables
 broker_address = "test.mosquitto.org"
 port = 1883
 topic = "test/tool1"
+mongo_conn_str = (
+    "mongodb+srv://kennethr:jldWyszwZi8bRtsN@data-main.ubaxa5i.mongodb.net/data_main"
+)
+
+# create mongoclient
+mongo_client = pymongo.MongoClient(mongo_conn_str).get_database("mqtt").RawSignals
+data = []
 
 
 # Functions
@@ -16,7 +26,9 @@ def on_connect(client, userdata, flags, rc):
 
 
 def on_message(client, userdata, msg):
-    print(f"Received message: {msg.payload.decode()}")
+    new_data = msg.payload.decode()
+    print(f"Received message: {new_data}")
+    data.append(json.loads(new_data))
 
 
 # Create an MQTT client instance
@@ -36,9 +48,12 @@ try:
     # Keep the script running to continue receiving messages
     while True:
         pass
-
 except KeyboardInterrupt:
     print("Disconnecting from the broker...")
-    # Disconnect from the broker when the program is interrupted (Ctrl+C)
     client.disconnect()
+    if len(data) > 0:
+        print("Writing to mongodb")
+        mongo_client.insert_many(data)
+        print(f"Inserted {len(data)} records.")
+
     client.loop_stop()
