@@ -1,9 +1,10 @@
 import paho.mqtt.client as mqtt
 
 # MQTT broker information
-broker_address = "localhost"
+broker_address = "test.mosquitto.org"
 port = 1883
 topic = "test/tool1"
+
 
 # Callback functions
 def on_connect(client, userdata, flags, rc):
@@ -13,8 +14,10 @@ def on_connect(client, userdata, flags, rc):
     else:
         print(f"Failed to connect. Return code: {rc}")
 
+
 def on_message(client, userdata, msg):
     print(f"Received message: {msg.payload.decode()}")
+
 
 # Create an MQTT client instance
 client = mqtt.Client("subscriber_client")
