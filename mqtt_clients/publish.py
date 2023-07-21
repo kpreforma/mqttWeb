@@ -3,6 +3,7 @@ import time, datetime, json
 import random as r
 
 # MQTT information
+# convert these to env variables
 hostname = "test.mosquitto.org"
 PORT = 1883
 topic = "test/tool1"
