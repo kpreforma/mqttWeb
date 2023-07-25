@@ -6,7 +6,7 @@ import random as r
 # convert these to env variables
 hostname = "test.mosquitto.org"
 PORT = 1883
-topic = "test/tool1"
+topic = "SYS_TEST/iotarray_SYS"
 
 # Create a MQTT client
 client = mqtt.Client("sender")
@@ -38,15 +38,34 @@ try:
     while True:
         # Generate some data to send
         data = json.dumps(
-            {
-                "device_code": "tool1",
-                "status": r.randint(0, 1),
+            [{
+                "device_code": "iot1lgcswi1",
+                "device_code": "logic_switch",
+                "reading": r.randint(0, 1),
                 "datetime": str(datetime.datetime.now()),
-            }
+            },
+            {
+                "device_code": "iot2lgcswi2",
+                "device_code": "logic_switch",
+                "reading": r.randint(0, 1),
+                "datetime": str(datetime.datetime.now()),
+            },
+            {
+                "device_code": "iot3lgtsnsr1",
+                "device_code": "light_sensor",
+                "reading": r.uniform(3.5, 5.0),
+                "datetime": str(datetime.datetime.now()),
+            },
+            {
+                "device_code": "iot4lgtsnsr2",
+                "device_code": "light_sensor",
+                "reading": r.uniform(0.3, 5.0),
+                "datetime": str(datetime.datetime.now()),
+            }]
         )
         client.publish(topic, data)
         print(f"Sent: {data}")
-        time.sleep(2)  # Change the delay as per your requirement
+        time.sleep(1)  # Change the delay as per your requirement
 
 except KeyboardInterrupt:
     print("Disconnecting from the broker...")

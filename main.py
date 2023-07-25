@@ -4,7 +4,7 @@ import pymongo
 import os
 import pandas as pd
 import json
-import plotly
+from plotly import graph_objects as go
 import plotly.express as px
 
 # initialize Flask app
@@ -23,8 +23,18 @@ pd_signals = pd.DataFrame(signals)
 
 
 # Create graphJSON
-fig = px.line(pd_signals, x='datetime', y='status')
-graph_js = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+px_line = px.line(pd_signals, x='datetime', y='status')
+px_line_js = json.dumps(px_line, cls=plotly.utils.PlotlyJSONEncoder)
+
+
+fig = go.Figure(data=[px.Table(
+    header=dict(values=list(pd_signals.columns),
+                fill_color='gray',
+                align='center'),
+    cells=dict(values=[pd_signals.datetime, pd_signals.device_code, pd_signals.status],
+               fill_color='lightgray',
+               align='left'))
+])
 
 
 # routes
@@ -35,7 +45,7 @@ def get_table():
 
 @app.get("/dashboard")
 def get_dash():
-    return render_template("dashboard.html", graph=graph_js)
+    return render_template("dashboard.html", graph=px_line_js)
 
 
 # start

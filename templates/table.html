@@ -1,14 +1,18 @@
 {%extends "base.html" %} {% block title %} MQTT | Table {% endblock %} {% block
 content %}
-<table>
+<table class="table table-hover table-dark table-sm">
 	<tr>
 		<th>ID</th>
+		<th>Datetime</th>
+		<th>Device Code</th>
 		<th>Status</th>
 	</tr>
 	{% for signal in signals %}
 
 	<tr>
 		<td>{{ signal._id }}</td>
+		<td>{{ signal.datetime }}</td>
+		<td>{{ signal.device_code }}</td>
 		<td>{{ signal.status }}</td>
 	</tr>
 

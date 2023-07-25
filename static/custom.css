@@ -13,29 +13,9 @@ body {
     padding-top: 90px;
     font-family: 'Ubuntu', 'Consolas', Arial, sans-serif;
     color: #2fcad9;
-    /* max-width: 1100px; */
-    margin: auto;
-    border-top: 0;
-    border-bottom: 0;
-    background-color: #051d26;
+    background-color: rgb(39, 39, 39);
 }
 
-.navbar {
-    background-color: #1e8fa0;
-    padding-left: 15%;
-    padding-right: 15%;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    margin: 0 auto; /* center */
-    .navbar-collapse {
-        justify-content : center; /* center the elements in the block if there is flex */
-        -webkit-justify-content : center; /* make it works on some navigators */
-    }
-}
-
-.navbar-brand, .nav-link {
-    color: #051d26;
-}
 
 #chat-container {
     background-color: #0b3a46;

@@ -6,13 +6,13 @@ import json
 # env variables
 broker_address = "test.mosquitto.org"
 port = 1883
-topic = "test/tool1"
-mongo_conn_str = (
-    "mongodb+srv://kennethr:jldWyszwZi8bRtsN@data-main.ubaxa5i.mongodb.net/data_main"
-)
+topic = "SYS_TEST/iotarray_SYS"
+# mongo_conn_str = (
+    # "mongodb+srv://kennethr:jldWyszwZi8bRtsN@data-main.ubaxa5i.mongodb.net/data_main"
+# )
 
 # create mongoclient
-mongo_client = pymongo.MongoClient(mongo_conn_str).get_database("mqtt").RawSignals
+# mongo_client = pymongo.MongoClient(mongo_conn_str).get_database("mqtt").RawSignals
 data = []
 
 
@@ -53,7 +53,8 @@ except KeyboardInterrupt:
     client.disconnect()
     if len(data) > 0:
         print("Writing to mongodb")
-        mongo_client.insert_many(data)
+        print(data)
+        # mongo_client.insert_many(data)
         print(f"Inserted {len(data)} records.")
 
     client.loop_stop()
