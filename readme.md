@@ -1,6 +1,9 @@
 Version 1:
 ![image](https://github.com/kpreforma/mqttWeb/assets/90399563/b68dd9a9-c032-4cdc-99e7-d0f62243fab8)
 
+Version 2:
+![image](https://github.com/kpreforma/mqttWeb/assets/90399563/5d001fc3-94dd-4a06-bef5-e5e40f5904f9)
+
 
 # MQTT Publisher using MQTT
 
