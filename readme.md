@@ -19,5 +19,5 @@ pip install Flask
 
 # To run Flask app
 
-flask --app hello run
+py main.py
 
