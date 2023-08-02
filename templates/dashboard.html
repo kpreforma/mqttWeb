@@ -5,8 +5,8 @@ block content %}
 	<div class="card-header">Dashboard 1</div>
 	<div class="card-body">
 		<div class="container">
-			<form method="post" action="/dashboard">
-				<div class="row g-3 align-items-center">
+			<div class="row g-3 align-items-center">
+				<form method="post" action="/dashboard">
 					<div class="col-auto">
 						<label for="dtpickerstart" class="col-form-label"
 							>Start Datetime</label
@@ -28,12 +28,11 @@ block content %}
 					<div class="col-auto">
 						<input type="submit" class="btn btn-secondary" value="Submit" />
 					</div>
-				</div>
-			</form>
-
-			<a href="/dashboard/download">
-				<button class="btn btn-secondary">Download as CSV</button>
-			</a>
+				</form>
+				<a href="/dashboard/download">
+					<button class="btn btn-secondary">Download as CSV</button>
+				</a>
+			</div>
 		</div>
 
 		<div id="chart" class="chart" ”></div>
