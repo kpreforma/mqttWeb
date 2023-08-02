@@ -3,6 +3,7 @@ Version 1:
 
 Version 2:
 ![image](https://github.com/kpreforma/mqttWeb/assets/90399563/5d001fc3-94dd-4a06-bef5-e5e40f5904f9)
+![image](https://github.com/kpreforma/mqttWeb/assets/90399563/eff0f90b-ba66-4cbd-a31b-f470566d6e9f)
 
 
 # MQTT Publisher using MQTT
