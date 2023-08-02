@@ -6,32 +6,45 @@ block content %}
 	<div class="card-body">
 		<div class="container">
 			<div class="row g-3 align-items-center">
-				<form method="post" action="/dashboard">
-					<div class="col-auto">
-						<label for="dtpickerstart" class="col-form-label"
-							>Start Datetime</label
-						>
-					</div>
-					<div class="col-auto">
-						<input
-							type="datetime-local"
-							name="dtpickerstart"
-							id="dtpickerstart"
-						/>
-					</div>
-					<div class="col-auto">
-						<label for="dtpickerend" class="col-form-label">End Datetime</label>
-					</div>
-					<div class="col-auto">
-						<input type="datetime-local" name="dtpickerend" id="dtpickerend" />
-					</div>
-					<div class="col-auto">
-						<input type="submit" class="btn btn-secondary" value="Submit" />
-					</div>
-				</form>
-				<a href="/dashboard/download">
-					<button class="btn btn-secondary">Download as CSV</button>
-				</a>
+				<div class="col-auto">
+					<form method="post" action="/dashboard">
+						<div class="row g-3 align-items-center">
+							<div class="col-auto">
+								<label for="dtpickerstart" class="col-form-label"
+									>Start Datetime</label
+								>
+							</div>
+							<div class="col-auto">
+								<input
+									type="datetime-local"
+									name="dtpickerstart"
+									id="dtpickerstart"
+								/>
+							</div>
+							<div class="col-auto">
+								<label for="dtpickerend" class="col-form-label"
+									>End Datetime</label
+								>
+							</div>
+							<div class="col-auto">
+								<input
+									type="datetime-local"
+									name="dtpickerend"
+									id="dtpickerend"
+								/>
+							</div>
+							<div class="col-auto">
+								<input type="submit" class="btn btn-secondary" value="Submit" />
+							</div>
+						</div>
+					</form>
+				</div>
+
+				<div class="col-auto">
+					<a href="/dashboard/download">
+						<button class="btn btn-secondary">Download as CSV</button>
+					</a>
+				</div>
 			</div>
 		</div>
 

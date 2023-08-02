@@ -1,24 +1,25 @@
 {%extends "base.html" %} {% block title %} MQTT | Table {% endblock %} {% block
 content %}
-
-<table class="table table-dark table-hover table-sm">
-	<tr>
-		<th>ID</th>
-		<th>Datetime</th>
-		<th>Device Code</th>
-		<th>Status</th>
-	</tr>
-	{% for signal in signals %}
-	<tbody>
-		<tr>
-			<td>{{ signal._id }}</td>
-			<td>{{ signal.datetime }}</td>
-			<td>{{ signal.device_code }}</td>
-			<td>{{ signal.status }}</td>
-		</tr>
-	</tbody>
-
-	{% endfor %}
-</table>
+<div class="card bg-dark text-light mh-25">
+	<div class="card-header h5">Tool 1 Data</div>
+	<div class="card-body">
+		<table class="table table-dark table-hover table-sm">
+			<tr>
+				<th>ID</th>
+				<th>Datetime</th>
+				<th>Device Code</th>
+				<th>Status</th>
+			</tr>
+			{% for signal in signals %}
+			<tr>
+				<td>{{ signal._id }}</td>
+				<td>{{ signal.datetime }}</td>
+				<td>{{ signal.device_code }}</td>
+				<td>{{ signal.status }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+</div>
 
 {% endblock %}
