@@ -22,12 +22,13 @@ def get_table():
 @app.route("/dashboard", methods=["GET", "POST"])
 def get_dashboard():
 	dfsignals_display = dfsignals
+	dfsignals_display['datetime'] = pd.to_datetime(dfsignals['datetime'], format='%Y-%m-%d %H:%M:%S.%f')
 	if request.method == 'POST':
 		start = request.form["dtpickerstart"]
 		end = request.form["dtpickerend"]
 		print(f"start: {start}, end: {end}")
 		# dfsignals_display = dfsignals
-		dfsignals_display = dfsignals.query(f"datetime >= '{start}' and datetime < '{end}'")
+		dfsignals_display = dfsignals_display[(dfsignals_display['datetime'] > start) & (dfsignals_display['datetime']< end)]
 	
 	graph = ps.create_graph(dfsignals_display)
 	return render_template("dashboard.html", graph=graph)
